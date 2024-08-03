@@ -60,6 +60,11 @@ public class MovementRigidbody2D : MonoBehaviour
             rigid2D.gravityScale = hightGravity;
         }
     }
+    private void LateUpdate()
+    {
+        float x = Mathf.Clamp(transform.position.x, Constants.min.x, Constants.max.x);
+        transform.position = new Vector3(x, transform.position.y, transform.position.z);
+    }
 
     public void MoveTo(float x)
     {
