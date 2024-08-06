@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] GameController gameController;
 
     private MovementRigidbody2D movement2D;
     private PlayerHP playerHP;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (gameController.IsGamePlay == false) return;
+
         UpdateMove();
         UpdateJump();
     }
@@ -50,7 +54,8 @@ public class PlayerController : MonoBehaviour
             bool isDie = playerHP.TakeDamage();
             if (isDie == true)
             {
-                Debug.Log("플레이어 사망");
+                GetComponent<Collider2D>().enabled = false;
+                gameController.GameOver();
             }
         }
     }
