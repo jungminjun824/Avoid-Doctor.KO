@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 51950005}
   - component: {fileID: 51950007}
   - component: {fileID: 51950006}
+  - component: {fileID: 51950008}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -334,6 +335,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51950004}
   m_CullTransparentMesh: 1
+--- !u!114 &51950008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51950004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b171b173ba35a45a1fcc6f77a861ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTime: 0.5
 --- !u!1 &72746287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1353,9 @@ MonoBehaviour:
   textResultGrade: {fileID: 1203213435}
   textResultTalk: {fileID: 730603454}
   textResultHighScore: {fileID: 844389180}
+  effectGameOver: {fileID: 51950008}
+  effectResultScore: {fileID: 709908662}
+  effectResultGrade: {fileID: 1203213437}
 --- !u!1 &376355507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,6 +1824,7 @@ GameObject:
   - component: {fileID: 709908659}
   - component: {fileID: 709908661}
   - component: {fileID: 709908660}
+  - component: {fileID: 709908662}
   m_Layer: 5
   m_Name: CurrentScore
   m_TagString: Untagged
@@ -1931,6 +1949,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709908658}
   m_CullTransparentMesh: 1
+--- !u!114 &709908662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709908658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd74f57c23ed6db408b22e38e5f87a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTime: 2
 --- !u!1 &730603452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,6 +2723,7 @@ GameObject:
   - component: {fileID: 1203213434}
   - component: {fileID: 1203213436}
   - component: {fileID: 1203213435}
+  - component: {fileID: 1203213437}
   m_Layer: 5
   m_Name: Grade
   m_TagString: Untagged
@@ -2748,8 +2780,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291297535
-  m_fontColor: {r: 1, g: 0, b: 0.78431374, a: 1}
+    rgba: 13107455
+  m_fontColor: {r: 1, g: 0, b: 0.78431374, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2816,6 +2848,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203213433}
   m_CullTransparentMesh: 1
+--- !u!114 &1203213437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203213433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b230632d8b80ffd4cb158e0a9664f6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTime: 1
 --- !u!1 &1210199956
 GameObject:
   m_ObjectHideFlags: 0

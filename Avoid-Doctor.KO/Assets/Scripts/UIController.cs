@@ -21,6 +21,11 @@ public class UIController : MonoBehaviour
     [SerializeField] TextMeshProUGUI textResultTalk;
     [SerializeField] TextMeshProUGUI textResultHighScore;
 
+    [Header("Result UI Animation")]
+    [SerializeField] private ScaleEffect effectGameOver;
+    [SerializeField] private CountingEffect effectResultScore;
+    [SerializeField] FadeEffect effectResultGrade;
+
     private void Awake()
     {
         textMainGrade.text = PlayerPrefs.GetString("HIGHGRADE");
@@ -36,12 +41,14 @@ public class UIController : MonoBehaviour
     {
         int currentScore = (int)gameController.CurrentScore;
 
-        textResultScore.text = currentScore.ToString();
         CalculateGradeAndTalk(currentScore);
         CalculateHighScore(currentScore);
 
         gamePanel.SetActive(false);
         resultPanel.SetActive(true);
+
+        effectGameOver.Play(500, 200);
+        effectResultScore.Play(0, currentScore, effectResultGrade.FadeIn);
     }
 
     public void GoToMainMenu()
@@ -92,10 +99,11 @@ public class UIController : MonoBehaviour
     private void CalculateHighScore(int score)
     {
         int highScore = PlayerPrefs.GetInt("HIGHSCORE");
+
         if(score > highScore)
         {
             PlayerPrefs.SetString("HIGHGRADE", textResultGrade.text);
-            PlayerPrefs.SetInt("HIGHGRADE", score);
+            PlayerPrefs.SetInt("HIGHSCORE", score);
             textResultHighScore.text = score.ToString();
         }
         else
