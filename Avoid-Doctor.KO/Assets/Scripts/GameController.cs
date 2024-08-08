@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private UIController uiController;
-    [SerializeField] private GameObject pattern01;
+    //[SerializeField] private GameObject pattern01;
+    [SerializeField] private PatternController patternController;
 
     private readonly float scoreScale = 20;
 
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
     public void GameStart()
     {
         uiController.GameStart();
-        pattern01.SetActive(true);
+        patternController.GameStart();
         IsGamePlay = true;
     }
 
@@ -32,7 +33,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         uiController.GameOver();
-        pattern01.SetActive(false);
+        patternController.GameOver();
         IsGamePlay = false;
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pattern01 : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private int maxEnemyCount;
     [SerializeField] private float spawnCycle;
 
     private AudioSource audioSource;
@@ -28,8 +29,9 @@ public class Pattern01 : MonoBehaviour
     {
         float waitTime = 1;
         yield return new WaitForSeconds(waitTime);
-        
-        while (true)
+
+        int count = 0;
+        while (count < maxEnemyCount)
         {
             if(audioSource.isPlaying == false)
             {
@@ -40,6 +42,10 @@ public class Pattern01 : MonoBehaviour
             Instantiate(enemyPrefab, position, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnCycle);
+
+            count++;
         }
+        // 패턴 오브젝트 비활성화
+        gameObject.SetActive(false);
     }
 }
